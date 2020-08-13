@@ -69,7 +69,12 @@ define([
             if (isHidden) {
                 setTimeout(function () {
                     $(self.selector).hide('blind', {}, 500);
-                }, 5000);
+                }, 30000);
+                try {
+                    $(self.selector)[0].scrollIntoView();
+                } catch (error) {
+                    // Do nothing
+                }
             }
         }
     });
